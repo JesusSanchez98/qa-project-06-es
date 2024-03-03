@@ -3,24 +3,26 @@ import configuration
 import requests
 import data
 
-def get_users_table():
-    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PATH)
 
-response = get_users_table()
-print(response.status_code)
 def post_new_user(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
                          json=body,
                          headers=data.headers)
 
-response = post_new_user(data.user_body)
-print(response.status_code)
-print(response.json())
+
+def token_generation():
+    respuesta = post_new_user(data.user_body)
+    dato = respuesta.json()
+    return dato ['authToken']
+
 
 def post_new_client_kit(client_kit):
+    Token = token_generation()
+    headers = data.headers.copy()
+    headers["Authorization"] = f"Bearer {Token}"
+
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT,
                          json=client_kit,
-                         headers=data.headers)
-response = post_new_client_kit(data.new_client_kit)
-print(response.status_code)
-print(response.json())
+                         headers=data.headers,
+                         )
+

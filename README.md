@@ -1,7 +1,11 @@
-# Proyecto 6
 # qa-project-06-es
-# Proyecto utilizado para la automatizacion de respuestes "201" y "400" 
-# Utilizamos Pycharm junto con las tecnicas de importar datos, funciones y assert.
-# new_client_kit son los datos para crear un nuevo kit 
-# Las pruebas positivas estan en la funcion def positive_assert(the_name):
-# Las pruebas negativas estan en la funcion def negative_assert_no_firstname(the_name):
+
+Jesus Antonio Sanchez Cabrera ---- Proyecto_Sprin_6
+Automatizar las pruebas desde una lista de comprobación, 
+comprobando el campo "name" en la solicitud de crecion de un kit 
+
+Las pruebas de automatizacion se crearon y se ejecutaron en PyCharm en formatos ".py"
+se instalaron los paquetes "pip install pytest" "pip install requests" en la terminal dentro de PyCharm.
+Para ejecuatar todas las pruebas dentro de la terminal ecribimos "pytest" 
+
+
