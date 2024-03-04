@@ -10,6 +10,7 @@ def positive_assert(the_kit_name):
     user_body = get_new_client_kit(the_kit_name)
     user_response = sender_stand_request.post_new_client_kit(user_body)
     assert user_response.status_code == 201
+    assert user_response.json()["name"] == the_kit_name
 
 def test_create_kit_1_letter__name_get_success_response():
     positive_assert(data.create_kit_1_letter)
@@ -25,7 +26,6 @@ def test_create_kit_has_space_in_name_get_success_response():
 
 def test_create_kit_has_number_in_name_get_success_response():
     positive_assert(data.create_kit_has_number)
-
 
 def negative_assert_no_firstname(the_kit_name):
     response = sender_stand_request.post_new_client_kit(the_kit_name)
